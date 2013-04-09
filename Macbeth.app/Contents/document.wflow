@@ -63,16 +63,17 @@
 if [ ! -f macbeth.command ]
 then
 	curl https://raw.github.com/cmpgk1024/macbeth/master/macbeth.sh -o macbeth.sh
-	chmod 777 macbeth.command
+	chmod 777 macbeth.sh
 	echo "downloaded script" &amp;&amp; exit 0
 else
 	curl https://raw.github.com/cmpgk1024/macbeth/master/macbeth.sh -o macbeth_new.sh
-	chmod 777 macbeth_new.command
+	chmod 777 macbeth_new.sh
 	if diff macbeth.sh macbeth_new.sh &gt;/dev/null ; then
   		rm macbeth_new.sh
 		echo "files same" &amp;&amp; exit 0
 	else
 		mv macbeth_new.sh macbeth.sh
+		chmod 777 macbeth.sh
 		echo "files different, copied" &amp;&amp; exit 0
 	fi
 fi</string>
@@ -190,7 +191,7 @@ fi</string>
 				<key>isViewVisible</key>
 				<true/>
 				<key>location</key>
-				<string>449.500000:516.000000</string>
+				<string>449.500000:696.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Run Shell Script.action/Contents/Resources/English.lproj/main.nib</string>
 			</dict>
