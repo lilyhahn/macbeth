@@ -62,17 +62,17 @@
 					<string>cd $TMPDIR
 if [ ! -f macbeth.command ]
 then
-	curl https://raw.github.com/cmpgk1024/macbeth/master/macbeth.command -o macbeth.command
+	curl https://raw.github.com/cmpgk1024/macbeth/master/macbeth.sh -o macbeth.sh
 	chmod 777 macbeth.command
 	echo "downloaded script" &amp;&amp; exit 0
 else
-	curl https://raw.github.com/cmpgk1024/macbeth/master/macbeth.command -o macbeth_new.command
+	curl https://raw.github.com/cmpgk1024/macbeth/master/macbeth.sh -o macbeth_new.sh
 	chmod 777 macbeth_new.command
-	if diff macbeth.command macbeth_new.command &gt;/dev/null ; then
-  		rm macbeth_new.command
+	if diff macbeth.sh macbeth_new.sh &gt;/dev/null ; then
+  		rm macbeth_new.sh
 		echo "files same" &amp;&amp; exit 0
 	else
-		mv macbeth_new.command macbeth.command
+		mv macbeth_new.sh macbeth.sh
 		echo "files different, copied" &amp;&amp; exit 0
 	fi
 fi</string>
@@ -190,7 +190,7 @@ fi</string>
 				<key>isViewVisible</key>
 				<true/>
 				<key>location</key>
-				<string>449.500000:696.000000</string>
+				<string>449.500000:516.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Run Shell Script.action/Contents/Resources/English.lproj/main.nib</string>
 			</dict>
@@ -238,7 +238,7 @@ fi</string>
 				<key>ActionParameters</key>
 				<dict>
 					<key>source</key>
-					<string>on toggleFullScreen()	set isFullScreenAfter to false	tell application "System Events"		try			tell front window of (first process whose frontmost is true)				set isFullScreen to get value of attribute "AXFullScreen"				set isFullScreenAfter to not isFullScreen				set value of attribute "AXFullScreen" to isFullScreenAfter			end tell		end try	end tell	return isFullScreenAfterend toggleFullScreenon run {input, parameters}		set currentFolder to path to temporary items			tell application "Terminal"		activate		do script "$TMPDIR/macbeth.command"	end tell		toggleFullScreen()			return inputend run</string>
+					<string>on toggleFullScreen()	set isFullScreenAfter to false	tell application "System Events"		try			tell front window of (first process whose frontmost is true)				set isFullScreen to get value of attribute "AXFullScreen"				set isFullScreenAfter to not isFullScreen				set value of attribute "AXFullScreen" to isFullScreenAfter			end tell		end try	end tell	return isFullScreenAfterend toggleFullScreenon run {input, parameters}		set currentFolder to path to temporary items			tell application "Terminal"		activate		do script "$TMPDIR/macbeth.sh"	end tell		toggleFullScreen()			return inputend run</string>
 				</dict>
 				<key>BundleIdentifier</key>
 				<string>com.apple.Automator.RunScript</string>
@@ -302,7 +302,7 @@ end run</string>
 	</array>
 	<key>connectors</key>
 	<dict>
-		<key>F508C413-41E2-4EA1-A67B-C674D704A8EA</key>
+		<key>23D67B54-A11A-4152-8750-451751B8F62A</key>
 		<dict>
 			<key>from</key>
 			<string>DACB28D3-F0E5-4173-B02E-D5B046017899 - DACB28D3-F0E5-4173-B02E-D5B046017899</string>
