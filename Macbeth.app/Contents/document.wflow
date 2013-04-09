@@ -62,11 +62,20 @@
 					<string>cd $TMPDIR
 if [ ! -f macbeth.command ]
 then
-	curl -L http://cl.ly/3E2m3t311Z1z/download/macbeth.command -o macbeth.command
+	curl https://raw.github.com/cmpgk1024/macbeth/master/macbeth.command -o macbeth.command
 	chmod 777 macbeth.command
 	echo "downloaded script" &amp;&amp; exit 0
-fi
-echo "ran existing script" &amp;&amp; exit 0</string>
+else
+	curl https://raw.github.com/cmpgk1024/macbeth/master/macbeth.command -o macbeth_new.command
+	chmod 777 macbeth_new.command
+	if diff macbeth.command macbeth_new.command &gt;/dev/null ; then
+  		rm macbeth_new.command
+		echo "files same" &amp;&amp; exit 0
+	else
+		mv macbeth_new.command macbeth.command
+		echo "files different, copied" &amp;&amp; exit 0
+	fi
+fi</string>
 					<key>CheckedForUserDefaultShell</key>
 					<true/>
 					<key>inputMethod</key>
@@ -102,6 +111,8 @@ echo "ran existing script" &amp;&amp; exit 0</string>
 				</array>
 				<key>OutputUUID</key>
 				<string>2CC94FFE-DE6B-4A68-B6E7-4676E931BA31</string>
+				<key>ShowWhenRun</key>
+				<false/>
 				<key>UUID</key>
 				<string>DACB28D3-F0E5-4173-B02E-D5B046017899</string>
 				<key>UnlocalizedApplications</key>
@@ -176,8 +187,6 @@ echo "ran existing script" &amp;&amp; exit 0</string>
 						<string>4</string>
 					</dict>
 				</dict>
-				<key>conversionLabel</key>
-				<integer>0</integer>
 				<key>isViewVisible</key>
 				<true/>
 				<key>location</key>
@@ -280,8 +289,6 @@ end run</string>
 						<string>0</string>
 					</dict>
 				</dict>
-				<key>conversionLabel</key>
-				<integer>0</integer>
 				<key>isViewVisible</key>
 				<true/>
 				<key>location</key>
@@ -295,7 +302,7 @@ end run</string>
 	</array>
 	<key>connectors</key>
 	<dict>
-		<key>043CA0FD-FC55-4EC9-8D46-D30F3B8159C3</key>
+		<key>F508C413-41E2-4EA1-A67B-C674D704A8EA</key>
 		<dict>
 			<key>from</key>
 			<string>DACB28D3-F0E5-4173-B02E-D5B046017899 - DACB28D3-F0E5-4173-B02E-D5B046017899</string>
