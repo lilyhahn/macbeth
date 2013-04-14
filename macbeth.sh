@@ -1,4 +1,5 @@
 #!/bin/bash
+clear
 echo -e "\e[0;31m"
 echo "Macbeth Creative Project"
 echo -e "\nBy Tobi Hahn\n\n"
